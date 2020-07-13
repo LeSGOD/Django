@@ -11,7 +11,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def index(request):
     return render(request, 'basic_app/index.html')
-
+@login_required
 def special(request):
     return HttpResponse("You are loggin in, Nice!")
 
