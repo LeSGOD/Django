@@ -9,7 +9,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     create_data = models.DateTimeField(default=timezone.now())
-    published_data = models.DataTimeField(blank=True, null=True)
+    published_data = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
         self.published_data = timezone.now()
