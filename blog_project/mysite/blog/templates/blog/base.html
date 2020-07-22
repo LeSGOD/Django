@@ -9,6 +9,10 @@
     <title>Blog</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 
     <!-- medium-editor -->
     <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
@@ -25,24 +29,25 @@
 
     <nav class='navbar navbar-default techfont custom-navbar'>
         <div class='container'>
-            <ul class="nav navbar=nav">
-                <li><a class="navbar-brand bigbrand" href="{% url 'post_list' %}">My blog</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand bigbrand" href="{% url 'blog:post_list'%}">My blog</a></li>
+                <li><a href="{% url 'blog:about' %}">About</a></li>
                 <li><a href="https://github.com/LeSGOD">Github</a></li>
+                <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
             </ul>
 
             <ul class='nav navbar-nav navbar-right'>
                 {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'post_new' %}">New Post</a>
+                    <a href="{% url 'blog:post_new' %}">New Post</a>
                 </li>
 
                 <li>
-                    <a href="{% url 'post_draft_list' %}">Drafts</a>
+                    <a href="{% url 'blog:post_draft_list' %}">Drafts</a>
                 </li>
 
                 <li>
-                    <a href="{% url 'logout' %}">Log Out</a>
+                    <a href="{% url 'logout' %}">Logout</a>
                 </li>
 
                 <li>
@@ -62,14 +67,14 @@
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
-                <div class="blog_posts">
-
-                    {% block body_block %}
-
-                    {% endblock body_block %}
 
 
-                </div>
+                {% block body_block %}
+
+                {% endblock body_block %}
+
+
+
 
             </div>
 

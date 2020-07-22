@@ -9,7 +9,7 @@ class PostForm(forms.ModelForm):
         """Meta definition for Postform."""
 
         model = Post
-        fields = ('author', 'text', 'title')
+        fields = ('author','title', 'text' )
 
     widgets = {
         'title': forms.TextInput(attrs={'class': 'textinputclass'}),
